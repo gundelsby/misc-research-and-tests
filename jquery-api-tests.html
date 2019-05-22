@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>jQuery API tests</title>
+	<style type="text/css">
+		body {
+			display: flex;
+			min-height: 100vh;
+			flex-direction: column;
+		}
+
+		main {
+			flex: 1;
+			display: flex;
+			flex-direction: row;
+		}
+
+		section {
+			flex: 1;
+		}
+
+		th {
+			text-align: left;
+			margin-right: 20px;
+		}
+		td {
+			text-align: right;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>jQuery API tests</h1>
+	</header>
+
+	<main>
+		<section>
+			<h2>Inline elements</h2>
+			<div class="test">
+				<h3>SPAN (no margin, padding or border)</h3>
+				<span class="unit">This is the element</span>
+				<h4>Computed styles</h4>
+				<table class="results"></table>
+			</div>
+
+			<div class="test">
+				<h3>SPAN (20px padding)</h3>
+				<span class="unit" style="padding: 20px">This is the element</span>
+				<h4>Computed styles</h4>
+				<table class="results"></table>
+			</div>
+
+			<div class="test">
+				<h3>SPAN (20px padding, 10px margin)</h3>
+				<span class="unit" style="padding: 20px;margin: 10px">This is the element</span>
+				<h4>Computed styles</h4>
+				<table class="results"></table>
+			</div>
+
+			<div class="test">
+				<h3>SPAN (20px padding, 10px margin, 2px border)</h3>
+				<span class="unit" style="padding: 20px;margin: 10px;border: 2px solid black">This is the element</span>
+				<h4>Computed styles</h4>
+				<table class="results"></table>
+			</div>
+		</section>		
+
+		<section>
+			<h2>inline-block elements</h2>
+			<div class="test">
+				<h3>SPAN (no margin, padding or border)</h3>
+				<span class="unit" style="display: inline-block;">This is the element</span>
+				<h4>Computed styles</h4>
+				<table class="results"></table>
+			</div>
+
+			<div class="test">
+				<h3>SPAN (20px padding)</h3>
+				<span class="unit" style="display: inline-block;padding: 20px">This is the element</span>
+				<h4>Computed styles</h4>
+				<table class="results"></table>
+			</div>
+
+			<div class="test">
+				<h3>SPAN (20px padding, 10px margin)</h3>
+				<span class="unit" style="display: inline-block;padding: 20px;margin: 10px">This is the element</span>
+				<h4>Computed styles</h4>
+				<table class="results"></table>
+			</div>
+
+			<div class="test">
+				<h3>SPAN (20px padding, 10px margin, 2px border)</h3>
+				<span class="unit" style="display: inline-block;padding: 20px;margin: 10px;border: 2px solid black">This is the element</span>
+				<h4>Computed styles</h4>
+				<table class="results"></table>
+			</div>
+		</section>		
+	</main>
+
+	<footer>
+		<hr />
+		<p>Using jQuery version <span id="jq-version"></span></p>
+	</footer>
+
+	<script
+	  src="https://code.jquery.com/jquery-3.3.1.js"
+	  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+	  crossorigin="anonymous"></script>
+
+	  <script>
+		document.querySelectorAll('.test').forEach((test) => {
+			const unit = test.querySelector('.unit');
+			const jqUnit = $(unit);
+			const output = test.querySelector('.results');
+			const computedStyles = window.getComputedStyle(unit);
+
+			const values = [];
+
+			values.push({name: 'computedStyles.width', value: computedStyles.width});
+			values.push({name: 'offsetWidth', value: unit.offsetWidth});
+			values.push({name: 'offsetWidth - computed horizontal padding', value: unit.offsetWidth - parseInt(computedStyles.paddingLeft) - parseInt(computedStyles.paddingRight)});
+			values.push({name: 'clientWidth', value: unit.clientWidth});
+			values.push({name: 'scrollWidth', value: unit.scrollWidth});
+
+			values.push({name: 'jQuery width()', value: jqUnit.width()});
+			values.push({name: 'jQuery innerWidth()', value: jqUnit.innerWidth()});
+			values.push({name: 'jQuery outerWidth()', value: jqUnit.outerWidth()});
+
+			values.push({name: 'computedStyles.height', value: computedStyles.height});
+			values.push({name: 'computedStyles.lineHeight', value: computedStyles.lineHeight});
+			values.push({name: 'offsetHeight', value: unit.offsetHeight});
+			values.push({name: 'clientHeight', value: unit.clientHeight});
+			values.push({name: 'scrollHeight', value: unit.scrollHeight});
+			values.push({name: 'scrollHeight - computed vertical padding', value: unit.scrollHeight - parseInt(computedStyles.paddingTop) - parseInt(computedStyles.paddingBottom)});
+
+			values.push({name: 'jQuery height()', value: jqUnit.height()});
+			values.push({name: 'jQuery innerHeight()', value: jqUnit.innerHeight()});
+			values.push({name: 'jQuery outerHeight()', value: jqUnit.outerHeight()});
+
+			values.forEach(({name, value}) => {
+				output.insertAdjacentHTML('beforeend', `<tr><th>${name}</th><td>${value}</td></tr>`);
+			})
+		});
+
+		document.querySelector('#jq-version').textContent = $.fn.jquery;
+	  </script>
+</body>
+</html>
