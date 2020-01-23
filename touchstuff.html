@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Touch me</title>
+		<link rel="stylesheet" href="styles/colorscheme.css" />
+		<style>
+			.container {
+				background: darkblue;
+				position: relative;
+				width: 800px;
+				height: 600px;
+				margin: 20px;
+				padding: 0;
+			}
+
+			.movable {
+				border: 1px solid red;
+				background: darkred;
+
+				width: 30px;
+				height: 30px;
+				margin: 0;
+				padding: 0;
+
+				position: absolute;
+				top: 50%;
+				left: 50%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="movable"></div>
+		</div>
+		<script type="module" src="scripts/touchstuff.js"></script>
+	</body>
+</html>

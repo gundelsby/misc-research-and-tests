@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+		<link rel="stylesheet" href="styles/colorscheme.css" />
+		<style>
+			pre {
+				border: 1px solid #666;
+				min-height: 2em;
+			}
+
+			div {
+				width: 300px;
+			}
+		</style>
+	</head>
+	<body>
+		<form>
+			<div>
+				<label>
+					Number (no lang)
+					<input type="number" name="lol" id="lol" step="0.1" />
+				</label>
+				<pre></pre>
+			</div>
+			<div>
+				<label>
+					Number ("no")
+					<input type="number" name="lol" id="lol" lang="no" step="0.1" />
+				</label>
+				<pre></pre>
+			</div>
+			<div>
+				<label>
+					Number ("no-nb")
+					<input type="number" name="lol" id="lol" lang="no-nb" step="0.1" />
+				</label>
+				<pre></pre>
+			</div>
+		</form>
+		<script>
+			document.addEventListener("input", event => {
+				if (event.target && event.target instanceof HTMLInputElement) {
+					const value = event.target.value;
+					event.target.parentNode.parentNode.querySelector(
+						"pre"
+					).textContent = value;
+				}
+			});
+		</script>
+	</body>
+</html>

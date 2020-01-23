@@ -1,0 +1,22 @@
+{
+	"name": "misc-research-and-tests",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "static ."
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/gundelsby/misc-research-and-tests.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/gundelsby/misc-research-and-tests/issues"
+	},
+	"homepage": "https://github.com/gundelsby/misc-research-and-tests#readme",
+	"devDependencies": {
+		"node-static": "^0.7.11"
+	}
+}

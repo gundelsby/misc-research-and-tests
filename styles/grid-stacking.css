@@ -1,0 +1,38 @@
+.video-cropper {
+	display: grid;
+	grid-template-areas: "lol";
+}
+
+.video-display,
+.cutout-window {
+	grid-area: lol;
+}
+
+.video-display {
+	outline: 1px solid red;
+	display: grid;
+	grid-template-areas: "video";
+	overflow: hidden;
+	position: relative;
+}
+
+.ar-placeholder {
+	width: 100%;
+	padding-bottom: 56.25%;
+	grid-area: video;
+}
+
+.video-display img {
+	grid-area: video;
+	position: absolute;
+}
+
+.cutout-window {
+	background: transparent url("/assets/9_16-from-1_69src.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	outline: 1px solid blue;
+	outline-offset: -1px;
+	z-index: 1;
+}

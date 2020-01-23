@@ -1,0 +1,19 @@
+.grid-root {
+	display: grid;
+	border: 1px solid red;
+	grid-template-columns: 1fr 1fr;
+	/*	grid-auto-rows: minmax(100px, auto); */
+	grid-auto-rows: minmax(auto, 100px);
+}
+
+.inline-grid-root {
+	border: 1px solid red;
+	grid-template-columns: 1fr 1fr;
+}
+
+.grid-item {
+	border: 1px dotted yellow;
+	background: rgba(255, 255, 255, 0.1);
+	padding: 4px;
+	overflow: hidden auto;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Grid stacking</title>
+		<link rel="stylesheet" href="styles/colorscheme.css" />
+		<link rel="stylesheet" href="styles/grid-stacking.css" />
+	</head>
+	<body>
+		<h1>Sofie cutout tool prototype</h1>
+		<source-selector></source-selector>
+		<br />
+		<section
+			id="cropper-container"
+			style="display:grid; grid-template-columns: 1fr 200px 1fr;"
+		>
+			<div class="video-cropper">
+				<div class="video-display">
+					<div class="ar-placeholder"></div>
+					<img
+						src="https://gfx.nrk.no/M2rI4JYClStgKfHVPTK2oAbNfsFKTtCpaMUND-ApQOLQ.jpg"
+						alt="lol"
+					/>
+				</div>
+				<div class="cutout-window"></div>
+			</div>
+			<div style="padding: 8px;">
+				Her skal det komme noen greier
+			</div>
+			<div class="video-cropper">
+				<div class="video-display">
+					<div class="ar-placeholder"></div>
+					<img
+						src="https://gfx.nrk.no/M2rI4JYClStgKfHVPTK2oAbNfsFKTtCpaMUND-ApQOLQ.jpg"
+						alt="lol"
+					/>
+				</div>
+				<div class="cutout-window"></div>
+			</div>
+		</section>
+	</body>
+</html>

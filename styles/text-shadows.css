@@ -1,0 +1,30 @@
+.shadowed {
+	text-shadow: 0px 0px 5px rgba(255, 0, 0, 0.5),
+		0px 0px 5px rgba(0, 255, 0, 0.8), 0px 0px 5px blue;
+}
+
+.shadowed-horror {
+	animation: pulsing 3s linear 2s infinite alternate both;
+}
+
+@keyframes pulsing {
+	from {
+		text-shadow: 0px 0px 15px rgba(255, 0, 0, 0),
+			0px 0px 15px rgba(0, 255, 0, 0.5), 0px 0px 10px blue;
+	}
+
+	33% {
+		text-shadow: 0px 0px 14px rgba(255, 0, 0, 0),
+			0px 0px 10px rgba(0, 255, 0, 1), 0px 0px 5px blue;
+	}
+
+	66% {
+		text-shadow: 0px 0px 15px rgba(255, 0, 0, 0.5),
+			0px 0px 5px rgba(0, 255, 0, 0.5), 0px 0px 10px blue;
+	}
+
+	to {
+		text-shadow: 0px 0px 10px rgba(255, 0, 0, 0),
+			0px 0px 10px rgba(0, 255, 0, 0), 0px 0px 15px blue;
+	}
+}
