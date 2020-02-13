@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>IFrame host</title>
+	</head>
+	<body>
+		<form name="src">
+			<label>
+				Iframe SRC:
+				<input type="text" name="iframe-src" />
+			</label>
+			<button type="submit">Show</button>
+		</form>
+		<iframe frameborder="1"></iframe>
+		<script>
+			(function() {
+				document.addEventListener("submit", event => {
+					event.preventDefault();
+					const src = document.forms.src.elements["iframe-src"].value;
+					document.querySelector("iframe").src = src;
+				});
+			})();
+		</script>
+	</body>
+</html>
